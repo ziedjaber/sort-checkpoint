@@ -1,0 +1,32 @@
+ALGORITHM Trie
+VAR
+    n,i,j,x:INTEGER;
+    t:i
+BEGIN
+    set_instructions
+END
+    Write("Donner la taille de la liste"); // Insertion de la taille de la liste
+    Read(n);  
+    x = 0;
+    For i From 0 TO n-1 // Remplissage de la liste
+        Write("Donner l'element n°", i+1);
+        Read(t[i]);
+    End_for   
+    For i From 1 TO n-1 // Trie de la liste
+        x = t[i];
+        
+        For j From i - 1 DOWNTO 0
+            If t[j] > x THEN
+                t[j+1] = t[j];
+            Else
+                Break; // Exit the loop if the element is in the correct position
+            End_if
+        End_for
+        
+        t[j+1] = x;
+    End_for
+    
+    For i From 0 TO n-1
+        Write(t[i]);
+    End_for
+END
